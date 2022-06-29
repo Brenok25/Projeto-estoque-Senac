@@ -4,6 +4,8 @@ from class_produto import *
 class Estoque:
     def __init__(self):
         self.listaProdutos = []
+        self.listaProdutos.append(Produto('1','Notebook','Dell'))
+        self.listaProdutos.append(Produto('2','Monitor','Aoc'))
     
     def cadastrar_produto(self):
         self.listaProdutos.append(Produto())
@@ -53,4 +55,3 @@ class Estoque:
             else:
                  pass
 
-        
