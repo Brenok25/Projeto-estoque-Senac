@@ -8,13 +8,16 @@ class Estoque:
         self.listaProdutos.append(Produto('2','Monitor','Aoc'))
     
     def cadastrar_produto(self):
-        self.listaProdutos.append(Produto())
+        arg_1 = len(self.listaProdutos)+1
+        arg_2 = input('Digite o Nome do produto: ')
+        arg_3 = input('Digite o Fabricante do produto: ')
+
+        self.listaProdutos.append(Produto(cod = arg_1, nome = arg_2, fabr = arg_3 ))
     
     def listar_produtos(self):
         for i in range(len(self.listaProdutos)):
             print('Código do produto: ', self.listaProdutos[i].cod,
             '\nNome do Produto: ',self.listaProdutos[i].nome,
-            '\nDescrição do Produto: ', self.listaProdutos[i].desc,
             '\nFabricante: ', self.listaProdutos[i].fabr,
             '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
     
@@ -24,7 +27,6 @@ class Estoque:
             if resp == self.listaProdutos[i].cod:
              print('Código do produto: ', self.listaProdutos[i].cod,
             '\nNome do Produto: ',self.listaProdutos[i].nome,
-            '\nDescrição do Produto: ', self.listaProdutos[i].desc,
             '\nFabricante: ', self.listaProdutos[i].fabr,
             '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
 
@@ -34,13 +36,11 @@ class Estoque:
         for i in range(len(self.listaProdutos)):
             if resp == self.listaProdutos[i].cod:
                 self.listaProdutos[i].nome= input('Digite o novo Nome ')
-                self.listaProdutos[i].desc= input('Digite a nova Descrição ')
 
     def listar(self):
         for i in  range(len(self.listaProdutos)):
 
             print('Código: ', self.listaProdutos[i].cod,
-            'Descriçao:', self.listaProdutos[i].desc,
             'Fabricante: ', self.listaProdutos[i].fabr,
             'Quantidade:', self.listaProdutos[i].quant)
 
@@ -49,7 +49,6 @@ class Estoque:
         for i in range(len(self.listaProdutos)):
             if resp == self.listaProdutos[i].cod:
                 print('Código: ', self.listaProdutos[i].cod,
-                'Descriçao:', self.listaProdutos[i].desc,
                 'Fabricante: ', self.listaProdutos[i].fabr,
                 'Quantidade:', self.listaProdutos[i].quant)
             else:
