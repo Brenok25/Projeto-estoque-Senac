@@ -14,12 +14,13 @@ class Menu:
         venda.entrada = estoque
 
         while True: 
-            entrada = input(' 1 - Cadastrar Produto\n'
+            entrada = input('\n'
+                            ' 1 - Cadastrar Produto\n'
                             ' 2 - Listar Produtos\n'
                             ' 3 - Alterar Descrição\n'
                             ' 4 - Excluir Produto\n'
                             ' 5 - Cadastrar Fabricante\n'
-                            ' 6 - Listar Fabricantes'
+                            ' 6 - Listar Fabricantes\n'
                             ' 7 - Alterar dados Fabricante\n'
                             ' 8 - Excluir Fabricante\n'
                             ' 9 - Comprar\n'
@@ -38,7 +39,7 @@ class Menu:
                 estoque.alter_desc()
 
             elif entrada == '4':
-                estoque.escluir_produto()
+                estoque.excluir_produto()
 
             elif entrada == '5':
                 estoque.cadastrar_fabr()

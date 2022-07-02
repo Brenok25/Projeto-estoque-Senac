@@ -47,7 +47,24 @@ class Estoque:
                 '---------------------------------------------------------------------\n')
             else:
                 pass
-    
+
+
+    def excluir_produto(self):
+        self.listar_produtos_normal()
+        entry = int(input('Insira o código do produto: '))
+        for i in range(len(self.listaProdutos)):
+            if self.listaProdutos[i].cod == entry:
+                self.listaProdutos.pop(i)
+                print('\nProduto excluido com sucesso!!!\n')
+                break
+            else:
+                pass
+        
+    def listar_produtos_normal(self):
+        for i in range(len(self.listaProdutos)):
+            print('---------------------------------------------------------------------\n'
+            'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                  '---------------------------------------------------------------------\n')
    # Fabricante
         
     
@@ -90,15 +107,18 @@ class Estoque:
                 'Código:', self.listaFabricante[i].cod,', Fabricante: ',self.listaFabricante[i].nome,', CNPJ:', self.listaFabricante[i].cnpj, ', Endereço:', self.listaFabricante[i].local,'\n'
                 '-----------------------------------------------------------------------------------------\n')
 
+    def excluir_fabr(self):
+        self.listar_fabr_normal()
+        entry = int(input('Insira o código do Fabricante: '))
+        for i in range(len(self.listaFabricante)):
+            if self.listaFabricante[i].cod == entry:
+                self.listaFabricante.pop(i)
+                print('\nFabricante excluido com sucesso!!!\n')
+                break
+            else:
+                pass
+    
 
-    
-    # def listar_produtos(self):
-    #     for i in range(len(self.listaProdutos)):
-    #         print('Código do produto: ', self.listaProdutos[i].cod,
-    #         '\nNome do Produto: ',self.listaProdutos[i].nome,
-    #         '\nFabricante: ', self.listaProdutos[i].fabr,
-    #         '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
-    
     # def listar_por_cod(self):
     #     resp = input('Digite o ID para pesquisa')
     #     for i in range(len(self.listaProdutos)):
