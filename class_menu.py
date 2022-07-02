@@ -14,7 +14,7 @@ class Menu:
         venda.entrada = estoque
 
         while True: 
-            entrada = input(' 1 - Cadastrar\n 2 - Listar Produtos\n 3 - Alterar Descrição\n 4 - Comprar\n 5 - Vender\n 0 - Sair\n')
+            entrada = input(' 1 - Cadastrar\n 2 - Listar Produtos\n 3 - Alterar Descrição\n 4 - Comprar\n 5 - Vender\n 6 - Historico compras\n 7 - Historico vendas\n 0 - Sair\n')
 
             if entrada == '1':
                 estoque.cadastrar_produto()
@@ -30,6 +30,12 @@ class Menu:
             
             elif entrada == '5':
                 venda.vender()
+            
+            elif entrada == '6':
+                compra.movimenta()
+            
+            elif entrada == '7':
+                venda.movimenta()
 
             elif entrada == '0':
                 print('Obrigado por usar nossos serviços, volte sempre\n')
