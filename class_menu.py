@@ -1,3 +1,4 @@
+from ast import Pass
 from class_estoque import *
 from class_compra import *
 from class_venda import *
@@ -13,17 +14,14 @@ class Menu:
         venda.entrada = estoque
 
         while True: 
-            entrada = input(' 1 - Novo Cadastro\n 2 - Listar produtos no sistema\n 3 - Filtrar Produtos\n 3 - Alterar Nome e descrição de poduto\n 4 - Comprar\n 5 - Vender\n 0 - Sair \n')
+            entrada = input(' 1 - Cadastrar\n 2 - Listar Produtos\n 3 - Alterar Descrição\n 4 - Comprar\n 5 - Vender\n 0 - Sair\n')
 
             if entrada == '1':
                 estoque.cadastrar_produto()
             
             elif entrada == '2':
-                estoque.listar_produtos()
-
-            elif entrada == '3':
                 estoque.listar()
-            
+
             elif entrada == '3':
                 estoque.alter_desc()
 
@@ -33,5 +31,9 @@ class Menu:
             elif entrada == '5':
                 venda.vender()
 
-            else:
+            elif entrada == '0':
+                print('Obrigado por usar nossos serviços, volte sempre\n')
                 break
+
+            else:
+                print('Opção invalida, tente novamente')

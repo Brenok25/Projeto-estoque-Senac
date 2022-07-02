@@ -4,8 +4,8 @@ from class_produto import *
 class Estoque:
     def __init__(self):
         self.listaProdutos = []
-        self.listaProdutos.append(Produto('1','Notebook','Dell'))
-        self.listaProdutos.append(Produto('2','Monitor','Aoc'))
+        self.listaProdutos.append(Produto(1,'Notebook','Dell'))
+        self.listaProdutos.append(Produto(2,'Monitor','Aoc'))
     
     def cadastrar_produto(self):
         arg_1 = len(self.listaProdutos)+1
@@ -13,25 +13,9 @@ class Estoque:
         arg_3 = input('Digite o Fabricante do produto: ')
 
         self.listaProdutos.append(Produto(cod = arg_1, nome = arg_2, fabr = arg_3 ))
-    
-    def listar_produtos(self):
-        for i in range(len(self.listaProdutos)):
-            print('Código do produto: ', self.listaProdutos[i].cod,
-            '\nNome do Produto: ',self.listaProdutos[i].nome,
-            '\nFabricante: ', self.listaProdutos[i].fabr,
-            '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
-    
-    def listar_por_cod(self):
-        resp = input('Digite o ID para pesquisa')
-        for i in range(len(self.listaProdutos)):
-            if resp == self.listaProdutos[i].cod:
-             print('Código do produto: ', self.listaProdutos[i].cod,
-            '\nNome do Produto: ',self.listaProdutos[i].nome,
-            '\nFabricante: ', self.listaProdutos[i].fabr,
-            '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
 
     def alter_desc(self):
-        resp = input('Digite o ID do produto: ')
+        resp = int(input('Digite o ID do produto: '))
 
         for i in range(len(self.listaProdutos)):
             if resp == self.listaProdutos[i].cod:
@@ -40,17 +24,34 @@ class Estoque:
     def listar(self):
         for i in  range(len(self.listaProdutos)):
 
-            print('Código: ', self.listaProdutos[i].cod,
-            'Fabricante: ', self.listaProdutos[i].fabr,
-            'Quantidade:', self.listaProdutos[i].quant)
+            print('---------------------------------------------------------------------\n'
+            'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                  '---------------------------------------------------------------------\n')
 
-        resp=input('Insira o codigo do produto:\n')
+        resp=int(input('Insira o codigo do produto:\n'))
 
         for i in range(len(self.listaProdutos)):
             if resp == self.listaProdutos[i].cod:
-                print('Código: ', self.listaProdutos[i].cod,
-                'Fabricante: ', self.listaProdutos[i].fabr,
-                'Quantidade:', self.listaProdutos[i].quant)
+                print('---------------------------------------------------------------------\n'
+                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                '---------------------------------------------------------------------\n')
             else:
                  pass
 
+
+    
+    # def listar_produtos(self):
+    #     for i in range(len(self.listaProdutos)):
+    #         print('Código do produto: ', self.listaProdutos[i].cod,
+    #         '\nNome do Produto: ',self.listaProdutos[i].nome,
+    #         '\nFabricante: ', self.listaProdutos[i].fabr,
+    #         '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
+    
+    # def listar_por_cod(self):
+    #     resp = input('Digite o ID para pesquisa')
+    #     for i in range(len(self.listaProdutos)):
+    #         if resp == self.listaProdutos[i].cod:
+    #          print('Código do produto: ', self.listaProdutos[i].cod,
+    #         '\nNome do Produto: ',self.listaProdutos[i].nome,
+    #         '\nFabricante: ', self.listaProdutos[i].fabr,
+    #         '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
