@@ -14,7 +14,19 @@ class Menu:
         venda.entrada = estoque
 
         while True: 
-            entrada = input(' 1 - Cadastrar\n 2 - Listar Produtos\n 3 - Alterar Descrição\n 4 - Comprar\n 5 - Vender\n 6 - Historico compras\n 7 - Historico vendas\n 0 - Sair\n')
+            entrada = input(' 1 - Cadastrar Produto\n'
+                            ' 2 - Listar Produtos\n'
+                            ' 3 - Alterar Descrição\n'
+                            ' 4 - Excluir Produto\n'
+                            ' 5 - Cadastrar Fabricante\n'
+                            ' 6 - Listar Fabricantes'
+                            ' 7 - Alterar dados Fabricante\n'
+                            ' 8 - Excluir Fabricante\n'
+                            ' 9 - Comprar\n'
+                            ' 10 - Historico compras\n'
+                            ' 11 - Vender\n'
+                            ' 12 - Historico vendas\n'
+                            ' 0 - Sair\n')
 
             if entrada == '1':
                 estoque.cadastrar_produto()
@@ -26,15 +38,30 @@ class Menu:
                 estoque.alter_desc()
 
             elif entrada == '4':
-                compra.comprar()
-            
+                estoque.escluir_produto()
+
             elif entrada == '5':
+                estoque.cadastrar_fabr()
+
+            elif entrada == '6':
+                estoque.listar_fabr()
+
+            elif entrada == '7':
+                estoque.alter_fabr()
+
+            elif entrada == '8':
+                estoque.excluir_fabr()
+
+            elif entrada == '9':
+                compra.comprar()
+
+            elif entrada == '10':
+                compra.movimenta()
+ 
+            elif entrada == '11':
                 venda.vender()
             
-            elif entrada == '6':
-                compra.movimenta()
-            
-            elif entrada == '7':
+            elif entrada == '12':
                 venda.movimenta()
 
             elif entrada == '0':
