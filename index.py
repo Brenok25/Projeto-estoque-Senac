@@ -20,4 +20,4 @@ menu = Menu()
 
 # Obs 1: Erro na função de listar ele não pega todos ao apertar enter - rever logica 
 
-# Obs 2: None no listar movimentações de entrada e saida de estoque
+# Obs 2: None no listar movimentações de entrada/saida de estoque

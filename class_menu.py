@@ -33,7 +33,7 @@ class Menu:
                 estoque.cadastrar_produto()
             
             elif entrada == '2':
-                estoque.listar()
+                estoque.lista_pqp()
 
             elif entrada == '3':
                 estoque.alter_desc()
