@@ -45,7 +45,7 @@ class Menu:
                 estoque.cadastrar_fabr()
 
             elif entrada == '6':
-                estoque.listar_fabr()
+                estoque.lista_pqp_fabr()
 
             elif entrada == '7':
                 estoque.alter_fabr()

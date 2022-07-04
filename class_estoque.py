@@ -31,23 +31,6 @@ class Estoque:
             if resp == self.listaProdutos[i].cod:
                 self.listaProdutos[i].nome= input('Digite o novo Nome ')
 
-    def listar(self):
-        for i in  range(len(self.listaProdutos)):
-
-            print('---------------------------------------------------------------------\n'
-            'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                  '---------------------------------------------------------------------\n')
-
-        resp=int(input('Insira o codigo do produto:\n'))
-
-        for i in range(len(self.listaProdutos)):
-            if resp == self.listaProdutos[i].cod:
-                print('---------------------------------------------------------------------\n'
-                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                '---------------------------------------------------------------------\n')
-            else:
-                pass
-
 
     def excluir_produto(self):
         self.listar_produtos_normal()
@@ -59,6 +42,45 @@ class Estoque:
                 break
             else:
                 pass
+    
+    def lista_pqp(self):
+        print('Listar por:\n'
+              '1 - Codígo\n'
+              '2 - Nome\n'
+              '3 - Fabricante\n')
+        entry = str(input('Digite o N° da opção:'))
+        if entry == '1':
+            num = int(input('Digite o Código solicitado: '))
+            for i in range(len(self.listaProdutos)):
+                if num == self.listaProdutos[i].cod:
+                    print('---------------------------------------------------------------------\n'
+                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                        '---------------------------------------------------------------------\n')
+                else: pass
+
+        elif entry == '2':
+            nome = str(input('Digite o Nome do produto solicitado: '))
+            for i in range(len(self.listaProdutos)):
+                if nome == self.listaProdutos[i].nome:
+                    print('---------------------------------------------------------------------\n'
+                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                    '---------------------------------------------------------------------\n')  
+                else: pass
+
+        elif entry == '3':
+            fabr = str(input('Digite o Nome do Fabricante solicitado: '))
+            for i in range(len(self.listaProdutos)):
+                if fabr == self.listaProdutos[i].fabr:
+                    print('---------------------------------------------------------------------\n'
+                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                    '---------------------------------------------------------------------\n')
+                else: pass
+
+        else: 
+            for i in range(len(self.listaProdutos)):
+                print('---------------------------------------------------------------------\n'
+                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                    '---------------------------------------------------------------------\n')
         
     def listar_produtos_normal(self):
         for i in range(len(self.listaProdutos)):
@@ -117,73 +139,45 @@ class Estoque:
                 break
             else:
                 pass
-    
-
-    # def listar_por_cod(self):
-    #     resp = input('Digite o ID para pesquisa')
-    #     for i in range(len(self.listaProdutos)):
-    #         if resp == self.listaProdutos[i].cod:
-    #          print('Código do produto: ', self.listaProdutos[i].cod,
-    #         '\nNome do Produto: ',self.listaProdutos[i].nome,
-    #         '\nFabricante: ', self.listaProdutos[i].fabr,
-    #         '\nQuantidade em Estoque: ',self.listaProdutos[i].quant,'\n')
 
 
 
-
-    def listar(self):
-        for i in  range(len(self.listaProdutos)):
-
-            print('---------------------------------------------------------------------\n'
-            'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                  '---------------------------------------------------------------------\n')
-
-        resp=int(input('Insira o codigo do produto:\n'))
-
-        for i in range(len(self.listaProdutos)):
-            if resp == self.listaProdutos[i].cod:
-                print('---------------------------------------------------------------------\n'
-                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                '---------------------------------------------------------------------\n')
-            else:
-                pass
-
-
-    def lista_pqp(self):
+    def lista_pqp_fabr(self):
         print('Listar por:\n'
               '1 - Codígo\n'
               '2 - Nome\n'
-              '3 - Fabricante\n')
+              '3 - CNPJ\n')
+
         entry = str(input('Digite o N° da opção:'))
-        if entry == 1:
-            num = int(input('Digite o Código solicitado: '))
-            for i in range(len(self.listaProdutos)):
-                if num == self.listaProdutos[i].cod:
-                    print('---------------------------------------------------------------------\n'
-                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                        '---------------------------------------------------------------------\n')
+        if entry == '1':
+            cod = int(input('Digite o Código solicitado: '))
+            for i in range(len(self.listaFabricante)):
+                if cod == self.listaFabricante[i].cod:
+                    print('-----------------------------------------------------------------------------------------\n'
+                        'Código:', self.listaFabricante[i].cod,', Fabricante: ',self.listaFabricante[i].nome,', CNPJ:', self.listaFabricante[i].cnpj, ', Endereço:', self.listaFabricante[i].local,'\n'
+                        '-----------------------------------------------------------------------------------------\n')
                 else: pass
 
-        elif entry == 2:
-            nome = str(input('Digite o Nome do produto solicitado: '))
-            for i in range(len(self.listaProdutos)):
-                if nome == self.listaProdutos[i].nome:
-                    print('---------------------------------------------------------------------\n'
-                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                    '---------------------------------------------------------------------\n')  
+        elif entry == '2':
+            name = str(input('Digite o Nome do produto solicitado: '))
+            for i in range(len(self.listaFabricante)):
+                if name == self.listaFabricante[i].nome:
+                    print('-----------------------------------------------------------------------------------------\n'
+                        'Código:', self.listaFabricante[i].cod,', Fabricante: ',self.listaFabricante[i].nome,', CNPJ:', self.listaFabricante[i].cnpj, ', Endereço:', self.listaFabricante[i].local,'\n'
+                        '-----------------------------------------------------------------------------------------\n')  
                 else: pass
 
-        elif entry == 3:
-            fabr = str(input('Digite o Nome do Fabricante solicitado: '))
-            for i in range(len(self.listaProdutos)):
-                if fabr == self.listaProdutos[i].fabr:
-                    print('---------------------------------------------------------------------\n'
-                    'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                    '---------------------------------------------------------------------\n')
+        elif entry == '3':
+            cnpj = str(input('Digite o Nome do Fabricante solicitado: '))
+            for i in range(len(self.listaFabricante)):
+                if cnpj == self.listaFabricante[i].cnpj:
+                    print('-----------------------------------------------------------------------------------------\n'
+                        'Código:', self.listaFabricante[i].cod,', Fabricante: ',self.listaFabricante[i].nome,', CNPJ:', self.listaFabricante[i].cnpj, ', Endereço:', self.listaFabricante[i].local,'\n'
+                        '-----------------------------------------------------------------------------------------\n')
                 else: pass
 
         else: 
-            for i in range(len(self.listaProdutos)):
-                print('---------------------------------------------------------------------\n'
-                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                    '---------------------------------------------------------------------\n')
+            for i in range(len(self.listaFabricante)):
+                    print('-----------------------------------------------------------------------------------------\n'
+                        'Código:', self.listaFabricante[i].cod,', Fabricante: ',self.listaFabricante[i].nome,', CNPJ:', self.listaFabricante[i].cnpj, ', Endereço:', self.listaFabricante[i].local,'\n'
+                        '-----------------------------------------------------------------------------------------\n')
