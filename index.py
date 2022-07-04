@@ -16,4 +16,5 @@ from class_menu import *
 menu = Menu()
 
 
+
 # Obs 2: None no listar movimentações de entrada/saida de estoque
