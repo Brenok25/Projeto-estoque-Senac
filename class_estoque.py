@@ -154,7 +154,7 @@ class Estoque:
               '1 - Codígo\n'
               '2 - Nome\n'
               '3 - Fabricante\n')
-        entry = int(input('Digite o N° da opção:'))
+        entry = str(input('Digite o N° da opção:'))
         if entry == 1:
             num = int(input('Digite o Código solicitado: '))
             for i in range(len(self.listaProdutos)):
@@ -181,8 +181,9 @@ class Estoque:
                     'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
                     '---------------------------------------------------------------------\n')
                 else: pass
-                
+
         else: 
-            print('---------------------------------------------------------------------\n'
-            'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
-                  '---------------------------------------------------------------------\n')
+            for i in range(len(self.listaProdutos)):
+                print('---------------------------------------------------------------------\n'
+                'Código:', self.listaProdutos[i].cod,', Produto: ',self.listaProdutos[i].nome,', Fabricante:', self.listaProdutos[i].fabr, ', Quantidade:', self.listaProdutos[i].quant,'\n'
+                    '---------------------------------------------------------------------\n')
