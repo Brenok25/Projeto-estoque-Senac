@@ -1,14 +1,10 @@
-from ast import Pass
-from class_estoque import *
+from class_new_estoque import *
 from class_compra import *
 from class_venda import *
 
 class Menu:
     def __init__(self):
-        estoque = Estoque()
-
-        compra = Compra()
-        compra.entrada = estoque
+        estoque = DBAestoque()
 
         venda = Venda()
         venda.entrada = estoque
@@ -30,10 +26,17 @@ class Menu:
                                  '2 - Cadastrar Novo Fabricante\n'))
                 
                 if num1 == '1':
-                    estoque.cadastrar_produto()
+                    cod = None
+                    nome = input('Entre com o Nome do produto: ')
+                    fabr = input('Entre com o nome do fabricante: ')
+                    estoque.salva_produto(cod, nome, fabr)
                 
                 elif num1 == '2':
-                    estoque.cadastrar_fabr()
+                    cod = None
+                    nome = input('Entre com o Nome do Fabricante: ')
+                    cnpj = input('Entre com o CNPJ do fabricante: ')
+                    local = input('Entre com o Endereço do fabricante: ')
+                    estoque.salva_fabricante(cod, nome, cnpj, local)
                 
                 else: pass
             
@@ -43,10 +46,12 @@ class Menu:
                                  '2 - Listar Fabricante\n'))
 
                 if num2 == '1':
-                    estoque.lista_pqp()
+                    tabela = 'Produto'
+                    estoque.listar(tabela)
                 
                 elif num2 == '2':
-                    estoque.lista_pqp_fabr()
+                    tabela = 'Fabricante'
+                    estoque.listar(tabela)
 
                 else: pass
             
@@ -56,10 +61,19 @@ class Menu:
                                  '2 - Alterar descrição de  Fabricante\n'))
 
                 if num3 == '1':
-                    estoque.alter_desc()
+                    cod = int(input('Informe o código do Produto: '))
+                    valor = input('Entre com o novo Nome:')
+                    tabela = 'Produto'
+                    atributo = 'nome'
+                    estoque.alterar_descricao(tabela, atributo, valor, cod)
                 
                 elif num3 == '2':
-                    estoque.alter_fabr()
+                    cod = int(input('Informe o código do Fabricante: '))
+                    valor = input('Entre com o novo Nome:')
+                    tabela = 'Fabricante'
+                    atributo = 'nome'
+                    estoque.alterar_descricao(tabela, atributo, valor, cod)
+                
 
                 else: pass
 
@@ -69,10 +83,14 @@ class Menu:
                                  '2 - Excluir  Fabricante\n'))
 
                 if num4 == '1':
-                    estoque.excluir_produto()
+                    cod = int(input('Informe o código do Produto: '))
+                    tabela = 'Produto'
+                    estoque.deletar(tabela,cod)
                 
                 elif num4 == '2':
-                    estoque.excluir_fabr()
+                    cod = int(input('Informe o código do Fabricante: '))
+                    tabela = 'Fabricante'
+                    estoque.deletar(cod, tabela)
 
                 else: pass
             
@@ -82,10 +100,12 @@ class Menu:
                                  '2 - listar transações\n'))
 
                 if num5 == '1':
-                    compra.comprar()
+                    cod = int(input('Informe o código do Produto: '))
+                    value =  int(input('Informe a quantidade comprada: '))
+                    estoque.compra(cod, value)
                 
                 elif num5 == '2':
-                    compra.movimenta()
+                    pass
 
                 else: pass
 
@@ -102,7 +122,7 @@ class Menu:
 
                 else: pass
             
-            elif entrada == '0':
+            elif entrada == '9':
                 print('Obrigado por usar nosso sistema, volte sempre!')
                 break
 
