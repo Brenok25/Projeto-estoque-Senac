@@ -1,6 +1,6 @@
 from class_new_estoque import *
 from class_compra import *
-from class_venda import *
+from class_new_venda import *
 
 class Menu:
     def __init__(self):
@@ -122,7 +122,12 @@ class Menu:
 
                 else: pass
             
-            elif entrada == '9':
+            elif entrada == '10':
+                    cod = int(input('Informe o código do Produto: '))
+                    value = int(input('Informe a quantidade do Produto comprado: '))
+                    venda.vender(cod,value)
+            
+            elif entrada == '0':
                 print('Obrigado por usar nosso sistema, volte sempre!')
                 break
 
