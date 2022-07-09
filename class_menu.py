@@ -1,13 +1,15 @@
 from class_new_estoque import *
-from class_compra import *
+from class_new_compra import *
 from class_new_venda import *
 
 class Menu:
     def __init__(self):
         estoque = DBAestoque()
 
-        venda = Venda()
-        venda.entrada = estoque
+        compra = Compra()
+        compra.entrada = estoque
+
+        venda = Venda()        
 
         print('BEM VINDO AO SEU APLICATIVO DE ESTOQUE')
         while True:
@@ -17,8 +19,8 @@ class Menu:
                   '\n 2 - Listagens'
                   '\n 3 - Atualizar informações'
                   '\n 4 - Exclusões'
-                  '\n 5 - Compras efetuadas'
-                  '\n 6 - Vendas efetuadas\n'))
+                  '\n 5 - Comprar Produto'
+                  '\n 6 - Vender Produto\n'))
             
             if entrada == '1':
                 num1 = str(input('Deseja:\n'
@@ -101,8 +103,9 @@ class Menu:
 
                 if num5 == '1':
                     cod = int(input('Informe o código do Produto: '))
-                    value =  int(input('Informe a quantidade comprada: '))
-                    estoque.compra(cod, value)
+                    value = int(input('Informe a quantidade do Produto comprado: '))
+                    atributo = 'compra'
+                    compra.compra(cod,value,atributo)
                 
                 elif num5 == '2':
                     pass
@@ -115,17 +118,16 @@ class Menu:
                                  '2 - listar transações\n'))
 
                 if num6 == '1':
-                    venda.vender()
+                    cod = int(input('Informe o código do Produto: '))
+                    value = int(input('Informe a quantidade do Produto vendido: '))
+                    atributo = 'venda'
+                    venda.venda(cod,value,atributo)
                 
                 elif num6 == '2':
                     venda.movimenta()
 
                 else: pass
-            
-            elif entrada == '10':
-                    cod = int(input('Informe o código do Produto: '))
-                    value = int(input('Informe a quantidade do Produto comprado: '))
-                    venda.vender(cod,value)
+
             
             elif entrada == '0':
                 print('Obrigado por usar nosso sistema, volte sempre!')

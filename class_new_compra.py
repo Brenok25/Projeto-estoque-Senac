@@ -2,7 +2,7 @@ import mysql.connector
 from class_historico import *
 from class_produto import *
 
-class Venda:
+class Compra:
 
     def __init__(self):
         self.conexao = mysql.connector.connect(
@@ -14,10 +14,10 @@ class Venda:
 
         self.my_cursor = self.conexao.cursor()
     
-    def venda(self,cod,value,atributo):
+    def compra(self,cod,value,atributo):
         sql = f'update Compra_venda set {atributo} = "{value}" where cod = {cod} '
-        sql_1 = f'update Compra_venda set final = (select (estoque - venda) where cod = {cod}) where cod = {cod};'
-        sql_2 = f'update Compra_venda set estoque = (select final where cod = {cod}) where cod = {cod};'
+        sql_1 = f'update  Compra_venda set final = (select (estoque + compra) where cod = {cod}) where cod = {cod};'
+        sql_2 = f'update  Compra_venda set estoque = (select final where cod = {cod}) where cod = {cod};'
         sql_3 = f'update Produto set quantidade = (select final from Compra_venda where cod = {cod}) where cod = {cod};'
         self.my_cursor.execute(sql) 
         self.conexao.commit()
@@ -27,9 +27,3 @@ class Venda:
         self.conexao.commit()
         self.my_cursor.execute(sql_3) 
         self.conexao.commit()
-        self.my_cursor.close()
-        self.conexao.close()
-
-
-        # Etoque tem q receber o valor final 
-

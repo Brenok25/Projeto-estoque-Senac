@@ -16,5 +16,5 @@ from class_menu import *
 menu = Menu()
 
 
-
-# Obs 2: None no listar movimentações de entrada/saida de estoque
+# obs 1: Compra e venda atualizados e funcionais - Pórem sem historico 
+# Obs 2: None no listar movimentações de entrada/saida de estoque2

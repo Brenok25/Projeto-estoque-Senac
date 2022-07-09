@@ -16,9 +16,12 @@ class DBAestoque:
     def salva_produto(self, cod, nome, fabr):
         obj_produto = Produto(cod, nome, fabr)
         sql = f'insert into Produto (nome, fabricante) value ("{obj_produto.nome}","{obj_produto.fabr}")'
+        sql_1 = f'insert into Compra_venda (estoque) value (0)'
         self.my_cursor.execute(sql) 
         self.conexao.commit()
-    
+        self.my_cursor.execute(sql_1) 
+        self.conexao.commit()
+
     def salva_fabricante(self, cod, nome, cnpj, local):
         obj_fabricante = Fabricante(cod, nome, cnpj, local)
         sql = f'insert into Fabricante (nome, cnpj, endereço) value ("{obj_fabricante.nome}","{obj_fabricante.cnpj}","{obj_fabricante.local}")'
