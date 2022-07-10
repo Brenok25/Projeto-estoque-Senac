@@ -17,7 +17,7 @@ class Venda:
     
     def venda(self,cod,value,atributo):
         sql = f'update Compra_venda set {atributo} = "{value}" where cod = {cod} '
-        sql_1 = f'update Compra_venda set final = (select (estoque - venda) where cod = {cod}) where cod = {cod};'
+        sql_1 = f'update Compra_venda set final = (select (estoque - venda) where cod = {cod}) where cod = {cod} and estoque > venda;'
         sql_2 = f'update Compra_venda set estoque = (select final where cod = {cod}) where cod = {cod};'
         sql_3 = f'update Produto set quantidade = (select final from Compra_venda where cod = {cod}) where cod = {cod};'
         self.my_cursor.execute(sql) 
@@ -29,5 +29,5 @@ class Venda:
         self.my_cursor.execute(sql_3) 
         self.conexao.commit()
 
-        # Ta fazendo venda negativa
+        # Não faz mais venda negativa --- Mas como printar isso na tela ???
 
