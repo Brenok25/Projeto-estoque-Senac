@@ -36,8 +36,6 @@ primary key (cod)
 #primary key (cod)
 #);
 
-
-
 #insert into Compra (estoque,compra) value(100,100);
 select * From Compra_venda;
 select * From Produto;
