@@ -1,3 +1,4 @@
+from distutils.log import error
 import mysql.connector
 from class_historico import *
 from class_produto import *
@@ -27,9 +28,6 @@ class Venda:
         self.conexao.commit()
         self.my_cursor.execute(sql_3) 
         self.conexao.commit()
-        self.my_cursor.close()
-        self.conexao.close()
 
-
-        # Etoque tem q receber o valor final 
+        # Ta fazendo venda negativa
 
