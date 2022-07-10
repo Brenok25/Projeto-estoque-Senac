@@ -1,3 +1,4 @@
+from tracemalloc import stop
 from class_new_estoque import *
 from class_new_compra import *
 from class_new_venda import *
@@ -25,12 +26,16 @@ class Menu:
             if entrada == '1':
                 num1 = str(input('Deseja:\n'
                                  '1 - Cadastrar Novo Produto\n'
-                                 '2 - Cadastrar Novo Fabricante\n'))
+                                 '2 - Cadastrar Novo Fabricante\n'
+                                 '0 - Voltar\n'))
+
                 
                 if num1 == '1':
                     cod = None
                     nome = input('Entre com o Nome do produto: ')
-                    fabr = input('Entre com o nome do fabricante: ')
+                    atributo = 'Fabricante'
+                    estoque.listar(atributo)
+                    fabr = int(input('Entre com o ID do fabricante: '))
                     estoque.salva_produto(cod, nome, fabr)
                 
                 elif num1 == '2':
@@ -40,12 +45,16 @@ class Menu:
                     local = input('Entre com o Endereço do fabricante: ')
                     estoque.salva_fabricante(cod, nome, cnpj, local)
                 
+                elif num1 == '0':
+                    pass
+                
                 else: pass
             
             elif entrada == '2':
                 num2 = str(input('Deseja:\n'
                                  '1 - Listar Produtos\n'
-                                 '2 - Listar Fabricante\n'))
+                                 '2 - Listar Fabricante\n'
+                                 '0 - Voltar\n'))
 
                 if num2 == '1':
                     tabela = 'Produto'
@@ -54,13 +63,17 @@ class Menu:
                 elif num2 == '2':
                     tabela = 'Fabricante'
                     estoque.listar(tabela)
+                
+                elif num2 == '0':
+                    pass
 
                 else: pass
             
             elif entrada == '3':
                 num3 = str(input('Deseja:\n'
                                  '1 - Alterar descrição de Produto\n'
-                                 '2 - Alterar descrição de  Fabricante\n'))
+                                 '2 - Alterar descrição de  Fabricante\n'
+                                 '0 - Voltar\n'))
 
                 if num3 == '1':
                     cod = int(input('Informe o código do Produto: '))
@@ -76,13 +89,17 @@ class Menu:
                     atributo = 'nome'
                     estoque.alterar_descricao(tabela, atributo, valor, cod)
                 
+                elif num3 == '0':
+                    pass
+                
 
                 else: pass
 
             elif entrada == '4':
                 num4 = str(input('Deseja:\n'
                                  '1 - Excluir Produto\n'
-                                 '2 - Excluir  Fabricante\n'))
+                                 '2 - Excluir  Fabricante\n'
+                                 '0 - Voltar\n'))
 
                 if num4 == '1':
                     cod = int(input('Informe o código do Produto: '))
@@ -93,13 +110,17 @@ class Menu:
                     cod = int(input('Informe o código do Fabricante: '))
                     tabela = 'Fabricante'
                     estoque.deletar(cod, tabela)
+                
+                elif num4 == '0':
+                    pass
 
                 else: pass
             
             elif entrada == '5':
                 num5 = str(input('Deseja:\n'
                                  '1 - Comprar Produto\n'
-                                 '2 - listar transações\n'))
+                                 '2 - listar transações\n'
+                                 '0 - Voltar\n'))
 
                 if num5 == '1':
                     cod = int(input('Informe o código do Produto: '))
@@ -110,12 +131,17 @@ class Menu:
                 elif num5 == '2':
                     pass
 
+                elif num5 == '0':
+                    pass
+
+
                 else: pass
 
             elif entrada == '6':
                 num6 = str(input('Deseja:\n'
                                  '1 - Vender Produto\n'
-                                 '2 - listar transações\n'))
+                                 '2 - listar transações\n'
+                                 '0 - Voltar\n'))
 
                 if num6 == '1':
                     cod = int(input('Informe o código do Produto: '))
@@ -126,9 +152,15 @@ class Menu:
                 elif num6 == '2':
                     venda.movimenta()
 
+                elif num6 == '0':
+                    pass
+
                 else: pass
 
-            
+            # elif entrada == '10':
+            #         teste né boy
+
+
             elif entrada == '0':
                 print('Obrigado por usar nosso sistema, volte sempre!')
                 break
