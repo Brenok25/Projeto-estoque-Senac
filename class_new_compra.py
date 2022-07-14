@@ -8,7 +8,7 @@ class Compra:
         self.conexao = mysql.connector.connect(
             host= '127.0.0.1',
             user= 'root',
-            password= 'Lucariobk25',
+            password= 'q1w2e3',
             database='estoque_senac'
         )
 
