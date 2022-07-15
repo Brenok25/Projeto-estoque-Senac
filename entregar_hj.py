@@ -1,10 +1,12 @@
     
 from tkinter import *
+from class_new_estoque import *
 
 root = Tk()
 root.title('Estoque')
 root.geometry('500x300')
 root.config(background='#00c')
+estoque = DBAestoque()
 
 def noCommand():
     print('oi')
@@ -15,6 +17,15 @@ def new_produto():
     fr1.geometry('500x300')
     fr1.config(background='#ff0')
 
+    def cadastro_produto():
+        if nome.get() == '':
+            alert['text']='Nenhum texto digitado. Tente novamente.'
+        else:
+            cod=None
+            nome=nome.get()
+            estoque.salva_produto(cod,nome)
+            alert['text']=f'Cadastro realizado com sucesso.'
+
     title = Label(fr1, text= "Cadastre um novo produto", bg="#ff0", font="roboto 15").pack()
     label = Label(fr1, text= "Digite o nome do produto",bg="#ff0", font="roboto 10" ).pack()
     nome = Entry(fr1, font="roboto 10" ).pack()
@@ -22,7 +33,8 @@ def new_produto():
     label2 = Label(fr1, text= "Digite nome do Fabricante",bg="#ff0", font="roboto 10" ).pack()
     fabr = Entry(fr1, font="roboto 10" ).pack()
 
-    confirmar = Button(fr1, text="Cadastrar").pack()
+    confirmar = Button(fr1, text="Cadastrar", command=cadastro_produto).pack()
+    alert = Label(fr1, text="", bg='#ff0').pack()
     voltar = Button(fr1, text="voltar", command=fr1.destroy).pack()
 
     fr1.mainloop()
