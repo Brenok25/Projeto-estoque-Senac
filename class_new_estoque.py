@@ -36,6 +36,8 @@ class DBAestoque:
         lista = self.my_cursor.fetchall()
         for i in lista:
             print(i)
+        return lista
+
     
     def alterar_descricao(self, tabela, atributo, valor, cod):
         sql = f'update {tabela} set {atributo} = "{valor}" where cod = {cod}'

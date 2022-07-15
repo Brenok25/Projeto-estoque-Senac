@@ -1,7 +1,4 @@
 from tkinter import *
-from turtle import left
-
-from mysqlx import Row
 from class_new_estoque import *
 
 root = Tk()
@@ -19,6 +16,21 @@ def salvarProduto():
 def deletar():
     cod = ent1_fr1_2.get()
     estoque.deletar(cod)
+
+def listar_produtos():
+    tabela = 'Produto'
+    list1= estoque.listar(tabela)
+    for i in list1:
+        lb2_fr1_3['text'] += 'Cod: ' + str(i[0]) + ' ' + 'Prod: ' +str(i[1]) + '\n'
+    return list1
+
+def alterar():
+    tabela = 'Produto'
+    atributo = 'nome'
+    cod = in0_fr1_4.get()
+    valor = in1_fr1_4.get()
+    estoque.alterar_descricao(tabela, atributo, valor, cod)
+
 
 def remove(button):
     button.grid_remove()
@@ -44,8 +56,11 @@ delete_pr.grid(row=0, column=1)
 listar_fr1 = Button(fr1, text='listar', command= lambda: [fr1.grid_remove(), fr1_3.grid(row=0,column=0)])
 listar_fr1.grid(row=0, column=2)
 
+alterar_fr1 = Button(fr1, text='Alterar', command= lambda: [fr1.grid_remove(), fr1_4.grid(row=0,column=0)])
+alterar_fr1.grid(row=0, column=3)
+
 voltar = Button(fr1, text='voltar', command= lambda: [fr1.grid_remove(), fr1.grid(row=0,column=0)])
-voltar.grid(row=0, column=3)
+voltar.grid(row=0, column=4)
 
 # Cadastrar Produto
 fr1_1 = LabelFrame(root)
@@ -91,15 +106,36 @@ fr1_3 = LabelFrame(root)
 lb1_fr1_3 = Label(fr1_3, text='Listar Produtos')
 lb1_fr1_3.grid()
 
-lb1_fr1_3 = Label(fr1_3, text='')
 lb2_fr1_3 = Label(fr1_3, text='')
+lb2_fr1_3.grid()
 
-confirm_fr1_3 = Button(fr1_3, text="Listar Produtos ", command= deletar )
+confirm_fr1_3 = Button(fr1_3, text="Listar Produtos ", command= listar_produtos )
 confirm_fr1_3.grid()
 
 voltar_fr1_3 = Button(fr1_3, text='voltar', command= lambda: [fr1_3.grid_remove(),fr1.grid(row=0,column=0)])
 voltar_fr1_3.grid()
 
+# Alterar Produto
+fr1_4 = LabelFrame(root)
+lb1_fr1_4 = Label(fr1_4, text='Alterar Produtos')
+lb1_fr1_4.grid()
+
+lb2_fr1_4= Label(fr1_4, text='Insira o Cod')
+lb2_fr1_4.grid()
+
+in0_fr1_4 = Entry(fr1_4, text='')# ID
+in0_fr1_4.grid()
+
+lb3_fr1_4 = Label(fr1_4, text='Insira um novo nome: ')
+lb3_fr1_4.grid()
+in1_fr1_4 = Entry(fr1_4, text='')
+in1_fr1_4.grid()
+
+confirm_fr1_4 = Button(fr1_4, text="Alterar Nome ", command= alterar )
+confirm_fr1_4.grid()
+
+voltar_fr1_4 = Button(fr1_4, text='voltar', command= lambda: [fr1_4.grid_remove(),fr1.grid(row=0,column=0)])
+voltar_fr1_4.grid()
 
 
 
