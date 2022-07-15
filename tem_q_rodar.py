@@ -267,38 +267,4 @@ confirm_fr2_4.grid()
 voltar_fr2_4 = Button(fr2_4, text='voltar', command= lambda: [fr2_4.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_4.grid()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# fr0 = LabelFrame (root).grid(row=0,column=0)
-
-# cadastrar_produto = Button(fr0, text="Cadastrar Produto", command= lambda: [remove(cadastrar_produto),remove(cadastrar_fabr), fr1.grid(row=0,column=0)])
-# cadastrar_produto.grid(row=0, column=0, padx=100, pady=80)
-# cadastrar_fabr = Button(fr0, text="Cadastrar Produto")
-# cadastrar_fabr.grid(row=0, column=1)
-
-# fr1 = LabelFrame (root)
-
-# voltar = Button(fr1, text="voltar").grid()
-
-# fr2 = LabelFrame (root)
-
-# voltar = Button(fr2, text="voltar").grid()
-
-
-
 root.mainloop()
-
-    
-
-
