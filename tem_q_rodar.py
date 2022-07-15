@@ -50,6 +50,14 @@ def listar_fabr():
     return list1
 
 
+def alterar_fabr():
+    tabela = 'Fabricante'
+    atributo = 'nome'
+    cod = in0_fr2_4.get()
+    valor = in1_fr2_4.get()
+    estoque.alterar_descricao(tabela, atributo, valor, cod)
+
+
 def remove(button):
     button.grid_remove()
 
@@ -170,10 +178,10 @@ delete_pr.grid(row=0, column=1)
 listar_fr1 = Button(fr2, text='listar', command= lambda: [fr2.grid_remove(), fr2_3.grid(row=0,column=0)])
 listar_fr1.grid(row=0, column=2)
 
-alterar_fr1 = Button(fr2, text='Alterar', command= lambda: [fr2.grid_remove(), fr1_4.grid(row=0,column=0)])
+alterar_fr1 = Button(fr2, text='Alterar', command= lambda: [fr2.grid_remove(), fr2_4.grid(row=0,column=0)])
 alterar_fr1.grid(row=0, column=3)
 
-voltar = Button(fr2, text='voltar', command= lambda: [fr2.grid_remove(), fr1.grid(row=0,column=0)])
+voltar = Button(fr2, text='voltar', command= lambda: [fr2.grid_remove(), fr2.grid(row=0,column=0)])
 voltar.grid(row=0, column=4)
 
 
@@ -200,7 +208,7 @@ ent3_fr2_1.grid()
 confirm_fr2_1 = Button(fr2_1, text="Cadastrar ", command= salvarFabricante )
 confirm_fr2_1.grid()
 
-voltar_fr2_1 = Button(fr2_1, text='voltar', command= lambda: [fr2_1.grid_remove(),fr1.grid(row=0,column=0)])
+voltar_fr2_1 = Button(fr2_1, text='voltar', command= lambda: [fr2_1.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_1.grid()
 
 
@@ -217,7 +225,7 @@ ent1_fr2_2.grid()
 confirm_fr2_2 = Button(fr2_2, text="Deletar ", command= deletar_fabri )
 confirm_fr2_2.grid()
 
-voltar_fr2_2 = Button(fr2_2, text='voltar', command= lambda: [fr2_2.grid_remove(),fr1.grid(row=0,column=0)])
+voltar_fr2_2 = Button(fr2_2, text='voltar', command= lambda: [fr2_2.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_2.grid()
 
 
@@ -233,8 +241,31 @@ lb2_fr2_3.grid()
 confirm_fr2_3 = Button(fr2_3, text="Listar  ", command= listar_fabr )
 confirm_fr2_3.grid()
 
-voltar_fr2_3 = Button(fr2_3, text='voltar', command= lambda: [fr2_3.grid_remove(),fr1.grid(row=0,column=0)])
+voltar_fr2_3 = Button(fr2_3, text='voltar', command= lambda: [fr2_3.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_3.grid()
+
+
+# Alterar Fabricante
+fr2_4 = LabelFrame(root)
+lb1_fr2_4 = Label(fr2_4, text='Alterar Fabricantea')
+lb1_fr2_4.grid()
+
+lb2_fr2_4= Label(fr2_4, text='Insira o Cod')
+lb2_fr2_4.grid()
+
+in0_fr2_4 = Entry(fr2_4, text='')# ID
+in0_fr2_4.grid()
+
+lb3_fr2_4 = Label(fr2_4, text='Insira um novo nome: ')
+lb3_fr2_4.grid()
+in1_fr2_4 = Entry(fr2_4, text='')
+in1_fr2_4.grid()
+
+confirm_fr2_4 = Button(fr2_4, text="Alterar Nome ", command= alterar_fabr )
+confirm_fr2_4.grid()
+
+voltar_fr2_4 = Button(fr2_4, text='voltar', command= lambda: [fr2_4.grid_remove(),fr2.grid(row=0,column=0)])
+voltar_fr2_4.grid()
 
 
 
