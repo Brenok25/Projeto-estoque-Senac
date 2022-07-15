@@ -244,7 +244,6 @@ confirm_fr2_3.grid()
 voltar_fr2_3 = Button(fr2_3, text='voltar', command= lambda: [fr2_3.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_3.grid()
 
-
 # Alterar Fabricante
 fr2_4 = LabelFrame(root)
 lb1_fr2_4 = Label(fr2_4, text='Alterar Fabricantea')
