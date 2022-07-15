@@ -18,15 +18,14 @@ def new_produto():
     fr1.config(background='#ff0')
 
     def cadastro_produto():
-        cod= None
-        nome= nome_fr1.get()
+        cod = None
+        nome = nome_fr1.get()
         fabr = fabr_fr1.get()
         estoque.salva_produto(cod,nome,fabr)
-        alert['text']=f'Cadastro realizado com sucesso.'
 
     title = Label(fr1, text= "Cadastre um novo produto", bg="#ff0", font="roboto 15").pack()
     label = Label(fr1, text= "Digite o nome do produto",bg="#ff0", font="roboto 10" ).pack()
-    nome_fr1 = Entry(fr1, font="roboto 10" ).pack()
+    nome_fr1 = Entry(fr1, font="roboto 10", textvariable='var' ).pack()
 
     label2 = Label(fr1, text= "Digite nome do Fabricante",bg="#ff0", font="roboto 10" ).pack()
     fabr_fr1 = Entry(fr1, font="roboto 10" ).pack()
@@ -43,15 +42,22 @@ def new_fabr():
     fr1_fbr.geometry('500x300')
     fr1_fbr.config(background='#ff0')
 
+    def cadastro_produto():
+        cod = None
+        nome = nome_fr1_fbr.get()
+        cnpj = cnpj_fr1_fbr.get()
+        local = local_fr1_fbr.get()
+        estoque.salva_produto(cod,nome,cnpj,local)
+
     title = Label(fr1_fbr, text= "Cadastre um novo Fabricante", bg="#ff0", font="roboto 15").pack()
     label = Label(fr1_fbr, text= "Digite o nome do Fabricante",bg="#ff0", font="roboto 10" ).pack()
-    nome = Entry(fr1_fbr, font="roboto 10" ).pack()
+    nome_fr1_fbr = Entry(fr1_fbr, font="roboto 10" ).pack()
 
-    label2 = Label(fr1_fbr, text= "Digite o CNPJ do Fabricante",bg="#ff0", font="roboto 10" ).pack()
-    fabr = Entry(fr1_fbr, font="roboto 10" ).pack()
+    label = Label(fr1_fbr, text= "Digite o CNPJ do Fabricante",bg="#ff0", font="roboto 10" ).pack()
+    cnpj_fr1_fbr = Entry(fr1_fbr, font="roboto 10" ).pack()
 
-    label3 = Label(fr1_fbr, text= "Digite o endereço do Fabricante",bg="#ff0", font="roboto 10" ).pack()
-    local = Entry(fr1_fbr, font="roboto 10" ).pack()
+    label = Label(fr1_fbr, text= "Digite o endereço do Fabricante",bg="#ff0", font="roboto 10" ).pack()
+    local_fr1_fbr = Entry(fr1_fbr, font="roboto 10" ).pack()
 
     confirmar = Button(fr1_fbr, text="Cadastrar").pack()
     voltar = Button(fr1_fbr, text="voltar", command=fr1_fbr.destroy).pack()
