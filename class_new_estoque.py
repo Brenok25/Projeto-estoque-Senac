@@ -48,3 +48,8 @@ class DBAestoque:
         sql = f'delete from Produto where cod = {cod}'
         self.my_cursor.execute(sql)
         self.conexao.commit()
+
+    def deletar_fabr(self, cod): 
+        sql = f'delete from Fabricante where cod = {cod}'
+        self.my_cursor.execute(sql)
+        self.conexao.commit()
