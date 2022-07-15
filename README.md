@@ -5,7 +5,7 @@
 
 ## Requisitos:
 <ul> 
-  <li> Função de cadastro e exclusão de clientes
+  <li> Função de cadastro e exclusão de produtos
   <li> Função de cadastro e exclusão de fabricantes
   <li> Função de listagens de produtos e fabricantes com filtros especificos
   <li> Função de alteração de nome de produtos e fabricantes
