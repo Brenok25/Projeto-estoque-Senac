@@ -18,11 +18,12 @@ def deletar():
     estoque.deletar(cod)
 
 def listar_produtos():
-    tabela = 'Produto'
-    list1= estoque.listar(tabela)
+    atributo = 'Produto'
+    list1= estoque.listar(atributo)
     for i in list1:
-        lb2_fr1_3['text'] += 'Cod: ' + str(i[0]) + ' ' + 'Prod: ' +str(i[1]) + '\n'
+        lb1_fr1_3['text'] += 'Cod: ' + str(i[0]) + ' ' + 'Prod: ' +str(i[1]) + '\n'
     return list1
+
 
 def alterar():
     tabela = 'Produto'
@@ -129,11 +130,11 @@ voltar_fr1_2.grid()
 
 # Listar Produto
 fr1_3 = LabelFrame(root)
-lb1_fr1_3 = Label(fr1_3, text='Listar Produtos')
-lb1_fr1_3.grid()
+lb0_fr1_3 = Label(fr1_3, text='Listar Produtos')
+lb0_fr1_3.grid()
 
-lb2_fr1_3 = Label(fr1_3, text='')
-lb2_fr1_3.grid()
+lb1_fr1_3 = Label(fr1_3, text='')
+lb1_fr1_3.grid()
 
 confirm_fr1_3 = Button(fr1_3, text="Listar Produtos ", command= listar_produtos )
 confirm_fr1_3.grid()
@@ -227,8 +228,6 @@ confirm_fr2_2.grid()
 
 voltar_fr2_2 = Button(fr2_2, text='voltar', command= lambda: [fr2_2.grid_remove(),fr2.grid(row=0,column=0)])
 voltar_fr2_2.grid()
-
-
 
 # Listar Fabricante
 fr2_3 = LabelFrame(root)
