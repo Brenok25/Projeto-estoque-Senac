@@ -85,13 +85,13 @@ start = Button(fr_index, text="Iniciar", width=15,font='roboto 15', command=lamb
 start.grid(row=1, column=1)
 
 
-fr0 = LabelFrame(root)
+fr0 = LabelFrame(root,bg="#00c", fg='#fff')
 
-produto = Button(fr0, text="Produto", command=lambda: [
+produto = Button(fr0, text="Produto",width=15,font='roboto 15', command=lambda: [
                  fr0.grid_remove(), fr1.grid(row=0, column=0)])
 produto.grid()
 
-fabr = Button(fr0, text='Fabricante', command=lambda: [
+fabr = Button(fr0, text='Fabricante',width=15,font='roboto 15', command=lambda: [
               fr0.grid_remove(), fr2.grid(row=0, column=0)])
 fabr.grid()
 
